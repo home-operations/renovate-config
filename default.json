@@ -4,7 +4,7 @@
     "config:recommended",
     "docker:enableMajor",
     "helpers:pinGitHubActionDigests",
-    "github>home-operations/renovate-config//.renovate/autoMerge.json5",
+    "github>home-operations/renovate-config:autoMerge.json5",
     ":dependencyDashboard",
     ":disableRateLimiting"
   ],
