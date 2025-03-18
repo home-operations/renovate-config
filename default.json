@@ -5,6 +5,8 @@
     "docker:enableMajor",
     "helpers:pinGitHubActionDigests",
     "github>home-operations/renovate-config:autoMerge.json5",
+    "github>home-operations/renovate-config:labels.json5",
+    "github>home-operations/renovate-config:semanticCommits.json5",
     ":dependencyDashboard",
     ":disableRateLimiting"
   ],
