@@ -12,6 +12,5 @@
   "suppressNotifications": [
     "prEditedNotification",
     "prIgnoreNotification"
-  ],
-  "platformCommit": "enabled"
+  ]
 }
