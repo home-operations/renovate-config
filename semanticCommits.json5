@@ -33,6 +33,7 @@
       commitMessageTopic: "chart {{depName}}",
     },
     {
+      matchDatasources: ["github-tags"],
       matchManagers: ["github-actions"],
       semanticCommitType: "ci",
       semanticCommitScope: "github-action",
