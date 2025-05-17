@@ -15,6 +15,7 @@
       matchManagers: ["github-actions"],
       matchPackageNames: [
         "/^actions\//",
+        "/^anchore\//",
         "/^docker\//",
       ],
       automerge: true,
