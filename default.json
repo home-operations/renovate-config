@@ -11,9 +11,5 @@
     ":dependencyDashboard",
     ":disableRateLimiting"
   ],
-  "dependencyDashboardTitle": "Renovate Dashboard 🤖",
-  "suppressNotifications": [
-    "prEditedNotification",
-    "prIgnoreNotification"
-  ]
+  "dependencyDashboardTitle": "Renovate Dashboard 🤖"
 }
