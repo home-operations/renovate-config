@@ -17,6 +17,7 @@
         "/^actions\//",
         "/^anchore\//",
         "/^docker\//",
+        "/^sigstore\//",
       ],
       automerge: true,
       automergeType: "branch",
