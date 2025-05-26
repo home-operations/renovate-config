@@ -33,7 +33,6 @@
       commitMessageTopic: "chart {{depName}}",
     },
     {
-      matchDatasources: ["github-tags"],
       matchManagers: ["github-actions"],
       semanticCommitType: "ci",
       semanticCommitScope: "github-action",
@@ -43,6 +42,11 @@
       matchDatasources: ["github-releases"],
       semanticCommitScope: "github-release",
       commitMessageTopic: "release {{depName}}",
+    },
+    {
+      matchManagers: ["mise"],
+      semanticCommitScope: "mise",
+      commitMessageTopic: "tool {{depName}}",
     },
   ],
 }
