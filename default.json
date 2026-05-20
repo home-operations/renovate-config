@@ -11,5 +11,9 @@
     ":dependencyDashboard",
     ":disableRateLimiting"
   ],
-  "dependencyDashboardTitle": "Renovate Dashboard 🤖"
+  "dependencyDashboardTitle": "Renovate Dashboard 🤖",
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": ["before 9am on the 1st day of the month"]
+  }
 }
