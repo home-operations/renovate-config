@@ -71,10 +71,6 @@ url = "https://nodejs.org/dist/v26.2.0/node-v26.2.0-darwin-x64.tar.gz"
 checksum = "sha256:371071a4f7e2c8a5dd280730049c685911feecc59f50ebc488d675dc1087c69c"
 url = "https://nodejs.org/dist/v26.2.0/node-v26.2.0-win-x64.zip"
 
-[[tools."npm:renovate"]]
-version = "43.150.0"
-backend = "npm:renovate"
-
 [[tools.oxfmt]]
 version = "0.52.0"
 backend = "npm:oxfmt"
