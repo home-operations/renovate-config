@@ -13,8 +13,7 @@
   ],
   "dependencyDashboardTitle": "Renovate Dashboard 🤖",
   "lockFileMaintenance": {
-    "enabled": true,
-    "schedule": ["every weekend"]
+    "enabled": true
   },
   "packageRules": [
     {
