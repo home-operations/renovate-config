@@ -14,7 +14,8 @@
   ],
   "dependencyDashboardTitle": "Renovate Dashboard 🤖",
   "lockFileMaintenance": {
-    "enabled": true
+    "enabled": true,
+    "schedule": ["before 3am on the first day of the month"]
   },
   "packageRules": [
     {
