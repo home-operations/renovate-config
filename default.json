@@ -4,6 +4,7 @@
     "config:recommended",
     "docker:enableMajor",
     "helpers:pinGitHubActionDigestsToSemver",
+    "github>home-operations/renovate-config:annotated.json5",
     "github>home-operations/renovate-config:autoMerge.json5",
     "github>home-operations/renovate-config:labels.json5",
     "github>home-operations/renovate-config:semanticCommits.json5",
