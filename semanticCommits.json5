@@ -34,7 +34,7 @@
     },
     {
       matchManagers: ["github-actions"],
-      semanticCommitType: "chore",
+      semanticCommitType: "ci",
       semanticCommitScope: "github-action",
       commitMessageTopic: "action {{depName}}",
     },
