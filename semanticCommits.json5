@@ -32,23 +32,31 @@
       semanticCommitScope: "helm",
       commitMessageTopic: "chart {{depName}}",
     },
+    // github-actions, github-releases, and mise are CI/build tooling, not the
+    // released image/chart, so a major bump of them must not count as a breaking
+    // change: override the major-update `!:` prefix (set above) with a plain `:`,
+    // so release-please never cuts a version bump from a `ci!`/`chore!` tooling
+    // update (a `ci`/`chore` type is non-releasing on its own; only the `!` bumps).
     {
       matchManagers: ["github-actions"],
       semanticCommitType: "ci",
       semanticCommitScope: "github-action",
       commitMessageTopic: "action {{depName}}",
+      commitMessagePrefix: "{{semanticCommitType}}({{semanticCommitScope}}):",
     },
     {
       matchDatasources: ["github-releases"],
       semanticCommitType: "chore",
       semanticCommitScope: "github-release",
       commitMessageTopic: "release {{depName}}",
+      commitMessagePrefix: "{{semanticCommitType}}({{semanticCommitScope}}):",
     },
     {
       matchManagers: ["mise"],
       semanticCommitType: "chore",
       semanticCommitScope: "mise",
       commitMessageTopic: "tool {{depName}}",
+      commitMessagePrefix: "{{semanticCommitType}}({{semanticCommitScope}}):",
     },
   ],
 }
