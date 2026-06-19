@@ -26,5 +26,15 @@
       minimumReleaseAge: "1 minute",
       ignoreTests: true,
     },
+    {
+      description: "Auto-merge Renovate itself (npm:renovate)",
+      matchDatasources: ["npm"],
+      matchPackageNames: ["renovate"],
+      automerge: true,
+      automergeType: "branch",
+      matchUpdateTypes: ["minor", "patch"],
+      minimumReleaseAge: "1 minute",
+      ignoreTests: true,
+    },
   ],
 }
