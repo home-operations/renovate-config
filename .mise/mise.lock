@@ -72,7 +72,7 @@ checksum = "sha256:45001b289ebffe7b22260898f3750059183d8246042b88e8ffa4337e65e67
 url = "https://nodejs.org/dist/v26.3.1/node-v26.3.1-win-x64.zip"
 
 [[tools."npm:renovate"]]
-version = "43.231.1"
+version = "43.231.3"
 backend = "npm:renovate"
 
 [[tools.oxfmt]]
