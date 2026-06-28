@@ -1,0 +1,30 @@
+{
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  // Opt-in preset for repos that ship a Helm chart. After a dependency bump,
+  // regenerate the chart's committed README.md + values.schema.json so a value/image
+  // change can't leave them stale and fail generate-check. Runs the helm-docs +
+  // helm-schema binaries shipped in the Renovate container (mirrors the chart-doc half
+  // of `mise run generate`); both are in the runner's RENOVATE_ALLOWED_COMMANDS.
+  //
+  // `--chart-search-root .` scans from the repo root so it finds the chart wherever it
+  // lives -- charts/<name>/ (echo, kromgo, ...) OR kopiur's deploy/helm/<name>/ -- with
+  // one preset. Each repo has exactly one chart, so the root scan reproduces the
+  // per-repo output byte-for-byte (verified: echo + kromgo + kopiur, no diff, no stray
+  // files). helm-docs errors on a *missing* --chart-search-root, so a layout-specific
+  // root (e.g. `charts`) can't be shared across both layouts; the root `.` always
+  // exists. fileFilters cover both layouts, so only the chart's own README/schema is
+  // committed regardless of where the scan looks.
+  postUpgradeTasks: {
+    commands: [
+      "helm-docs --chart-search-root=. --log-level=warn",
+      "helm-schema --chart-search-root . --skip-auto-generation required,additionalProperties --append-newline",
+    ],
+    fileFilters: [
+      "charts/*/README.md",
+      "charts/*/values.schema.json",
+      "deploy/helm/*/README.md",
+      "deploy/helm/*/values.schema.json",
+    ],
+    executionMode: "branch",
+  },
+}
