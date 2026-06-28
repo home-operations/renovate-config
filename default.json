@@ -21,7 +21,7 @@
   },
   "packageRules": [
     {
-      "description": "Bump the manifest range (package.json), not just the lockfile, so both update together. npm's default rangeStrategy ('replace') leaves a caret range untouched when the new version still satisfies it, so in-range minor/patch updates would otherwise only change the lockfile.",
+      "description": "NPM Bump Range Strategy",
       "matchManagers": ["npm"],
       "rangeStrategy": "bump"
     }
