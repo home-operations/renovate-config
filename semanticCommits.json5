@@ -32,6 +32,21 @@
       semanticCommitScope: "helm",
       commitMessageTopic: "chart {{depName}}",
     },
+    {
+      matchManagers: ["gomod"],
+      semanticCommitScope: "go",
+      commitMessageTopic: "module {{depName}}",
+    },
+    {
+      matchManagers: ["cargo"],
+      semanticCommitScope: "rust",
+      commitMessageTopic: "crate {{depName}}",
+    },
+    {
+      matchManagers: ["npm"],
+      semanticCommitScope: "npm",
+      commitMessageTopic: "dependency {{depName}}",
+    },
     // github-actions, github-releases, and mise are CI/build tooling, not the
     // released image/chart, so a major bump of them must not count as a breaking
     // change: override the major-update `!:` prefix (set above) with a plain `:`,
