@@ -7,6 +7,15 @@
       groupName: "github-actions",
       minimumReleaseAge: "3 days",
     },
+    // Catch-all for mise-managed dev tooling (linters, formatters, CLIs). Kept
+    // above the language-toolchain rules so their more specific groupName wins
+    // for go/rust/node (later packageRules override earlier ones).
+    {
+      description: "Mise Tools Group",
+      matchManagers: ["mise"],
+      groupName: "mise tools",
+      groupSlug: "mise-tools",
+    },
     {
       description: "Go Toolchain Group",
       matchManagers: ["mise", "gomod"],
