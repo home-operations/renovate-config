@@ -15,6 +15,11 @@
       matchManagers: ["mise"],
       groupName: "mise tools",
       groupSlug: "mise-tools",
+      // Same window as the GitHub Actions group above. Fresh releases often
+      // finish uploading per-arch assets and attestations after the tag
+      // appears; locking too early is how mise.lock ends up with missing
+      // platform URLs.
+      minimumReleaseAge: "3 days",
     },
     {
       description: "Go Toolchain Group",
