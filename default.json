@@ -10,6 +10,7 @@
     "github>home-operations/renovate-config:helmPostUpgradeTasks.json5",
     "github>home-operations/renovate-config:labels.json5",
     "github>home-operations/renovate-config:semanticCommits.json5",
+    "github>home-operations/renovate-config:sharedActions.json5",
     ":automergePr",
     ":configMigration",
     ":dependencyDashboard",

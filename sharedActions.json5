@@ -1,0 +1,38 @@
+{
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  customManagers: [
+    {
+      // The github-actions manager cannot update these pins: both actions
+      // resolve to the same depName (home-operations/.github), and the pin
+      // comment (`workflow-lint-v1.0.2`) is not version-like, so extraction
+      // falls back to the github-digest datasource with exact versioning and
+      // no update is ever found. This manager keys the lookup on the action
+      // path instead and filters the repo's per-action prefixed tags via
+      // extractVersion.
+      description: "Update home-operations/.github shared action pins (per-action prefixed tags)",
+      customType: "regex",
+      managerFilePatterns: ["/\\.github/workflows/[^/]+\\.ya?ml$/"],
+      matchStrings: [
+        "uses: home-operations/\\.github/actions/(?<action>[\\w-]+)@(?<currentDigest>[a-f0-9]{40})\\s+#\\s+[\\w-]+-(?<currentValue>v?\\d+\\.\\d+\\.\\d+)",
+      ],
+      depNameTemplate: "home-operations/.github/actions/{{{action}}}",
+      packageNameTemplate: "home-operations/.github",
+      datasourceTemplate: "github-tags",
+      extractVersionTemplate: "^{{{action}}}-(?<version>v?\\d+\\.\\d+\\.\\d+)$",
+      versioningTemplate: "semver-coerced",
+    },
+  ],
+  packageRules: [
+    {
+      // Match the github-actions manager's conventions from groups.json5 and
+      // semanticCommits.json5 so these PRs look like every other action bump.
+      matchManagers: ["custom.regex"],
+      matchPackageNames: ["home-operations/.github"],
+      groupName: "github-actions",
+      semanticCommitType: "ci",
+      semanticCommitScope: "github-action",
+      commitMessageTopic: "action {{depName}}",
+      commitMessagePrefix: "{{semanticCommitType}}({{semanticCommitScope}}):",
+    },
+  ],
+}
