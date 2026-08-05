@@ -12,6 +12,18 @@
       semanticCommitType: "feat",
       commitMessageExtra: "({{currentVersion}} → {{newVersion}})",
     },
+    // Renovate classifies 0.x → 0.y as minor, but SemVer gives pre-1.0.0
+    // releases no stability guarantee, so give them the major rule's breaking
+    // `!:` prefix. Must stay below the plain minor rule (later rules win) and
+    // above the CI/build tooling overrides at the bottom, which re-flatten the
+    // prefix so tooling bumps never release.
+    {
+      matchUpdateTypes: ["minor"],
+      matchCurrentVersion: "/^v?0\\./",
+      semanticCommitType: "feat",
+      commitMessagePrefix: "{{semanticCommitType}}({{semanticCommitScope}})!:",
+      commitMessageExtra: "({{currentVersion}} → {{newVersion}})",
+    },
     {
       matchUpdateTypes: ["patch"],
       semanticCommitType: "fix",
