@@ -9,6 +9,13 @@
       matchUpdateTypes: ["minor"],
       labels: ["type/minor"],
     },
+    // Keep below the plain minor rule so this one wins for 0.x.
+    {
+      description: "zer0ver: 0.x minors can break at any time, label them as majors",
+      matchUpdateTypes: ["minor"],
+      matchCurrentVersion: "/^v?0\\./",
+      labels: ["type/major"],
+    },
     {
       matchUpdateTypes: ["patch"],
       labels: ["type/patch"],

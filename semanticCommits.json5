@@ -12,6 +12,16 @@
       semanticCommitType: "feat",
       commitMessageExtra: "({{currentVersion}} → {{newVersion}})",
     },
+    // Keep below the plain minor rule and above the tooling overrides at the
+    // bottom, which re-flatten the prefix so tooling bumps never release.
+    {
+      description: "zer0ver: 0.x minors can break at any time, give them the breaking `!` prefix",
+      matchUpdateTypes: ["minor"],
+      matchCurrentVersion: "/^v?0\\./",
+      semanticCommitType: "feat",
+      commitMessagePrefix: "{{semanticCommitType}}({{semanticCommitScope}})!:",
+      commitMessageExtra: "({{currentVersion}} → {{newVersion}})",
+    },
     {
       matchUpdateTypes: ["patch"],
       semanticCommitType: "fix",
