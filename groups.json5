@@ -59,16 +59,10 @@
       groupName: "Node toolchain",
       groupSlug: "node-toolchain",
     },
+    // The branch prefix lands these on the same major-<groupSlug> branch
+    // Renovate uses to split grouped majors, instead of the safe group PR.
     {
-      // Renovate splits grouped majors onto a major-<groupSlug> branch, but
-      // that split is keyed on updateType, so 0.x minors — breaking per
-      // SemVer, see labels.json5/semanticCommits.json5 — would ride the safe
-      // non-major group branch (and its automerge rules). The default
-      // branchName template is {{branchPrefix}}{{additionalBranchPrefix}}
-      // {{branchTopic}}, so prefixing here lands them on the same
-      // major-<groupSlug> branch as real majors; ungrouped deps just get a
-      // major- branch rename.
-      description: "Route 0.x minor updates onto the major branches",
+      description: "zer0ver: 0.x minors can break at any time, route them onto the major branches",
       matchUpdateTypes: ["minor"],
       matchCurrentVersion: "/^v?0\\./",
       additionalBranchPrefix: "major-",

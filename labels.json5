@@ -9,10 +9,9 @@
       matchUpdateTypes: ["minor"],
       labels: ["type/minor"],
     },
-    // Renovate classifies 0.x → 0.y as minor, but SemVer gives pre-1.0.0
-    // releases no stability guarantee, so label them as majors instead
-    // (later rules win, overriding the type/minor rule above).
+    // Keep below the plain minor rule so this one wins for 0.x.
     {
+      description: "zer0ver: 0.x minors can break at any time, label them as majors",
       matchUpdateTypes: ["minor"],
       matchCurrentVersion: "/^v?0\\./",
       labels: ["type/major"],
