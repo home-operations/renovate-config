@@ -1,10 +1,13 @@
 {
   $schema: "https://docs.renovatebot.com/renovate-schema.json",
   packageRules: [
+    // No update type gets a breaking `!` prefix: breaking changes to a project
+    // must be user-authored. A dependency bump alone (even a major or a zer0ver
+    // 0.x minor) never breaks the project's own API surface, so release-please
+    // must never cut a breaking release from a Renovate commit.
     {
       matchUpdateTypes: ["major"],
       semanticCommitType: "feat",
-      commitMessagePrefix: "{{semanticCommitType}}({{semanticCommitScope}})!:",
       commitMessageExtra: "({{currentVersion}} → {{newVersion}})",
     },
     {
@@ -12,14 +15,11 @@
       semanticCommitType: "feat",
       commitMessageExtra: "({{currentVersion}} → {{newVersion}})",
     },
-    // Keep below the plain minor rule and above the tooling overrides at the
-    // bottom, which re-flatten the prefix so tooling bumps never release.
     {
-      description: "zer0ver: 0.x minors can break at any time, give them the breaking `!` prefix",
+      description: "zer0ver: 0.x minors can break at any time; routed and reviewed like majors (see groups.json5), but committed as plain feat",
       matchUpdateTypes: ["minor"],
       matchCurrentVersion: "/^v?0\\./",
       semanticCommitType: "feat",
-      commitMessagePrefix: "{{semanticCommitType}}({{semanticCommitScope}})!:",
       commitMessageExtra: "({{currentVersion}} → {{newVersion}})",
     },
     {
@@ -58,30 +58,41 @@
       commitMessageTopic: "dependency {{depName}}",
     },
     // github-actions, github-releases, and mise are CI/build tooling, not the
-    // released image/chart, so a major bump of them must not count as a breaking
-    // change: override the major-update `!:` prefix (set above) with a plain `:`,
-    // so release-please never cuts a version bump from a `ci!`/`chore!` tooling
-    // update (a `ci`/`chore` type is non-releasing on its own; only the `!` bumps).
+    // released image/chart, so they use the non-releasing `chore` type to keep
+    // tooling bumps out of release-please changelogs entirely.
     {
       matchManagers: ["github-actions"],
-      semanticCommitType: "ci",
+      semanticCommitType: "chore",
       semanticCommitScope: "github-action",
       commitMessageTopic: "action {{depName}}",
-      commitMessagePrefix: "{{semanticCommitType}}({{semanticCommitScope}}):",
     },
     {
       matchDatasources: ["github-releases"],
       semanticCommitType: "chore",
       semanticCommitScope: "github-release",
       commitMessageTopic: "release {{depName}}",
-      commitMessagePrefix: "{{semanticCommitType}}({{semanticCommitScope}}):",
     },
     {
       matchManagers: ["mise"],
       semanticCommitType: "chore",
       semanticCommitScope: "mise",
       commitMessageTopic: "tool {{depName}}",
-      commitMessagePrefix: "{{semanticCommitType}}({{semanticCommitScope}}):",
+    },
+    // Test frameworks and lint/check-only tooling never reach the shipped
+    // artifact, so their bumps must not cut a release. Bundlers and compilers
+    // (svelte, vite, rollup, tailwind) stay releasing: they shape the artifact.
+    {
+      description: "Non-shipped dev tooling uses the non-releasing chore type",
+      matchDepNames: [
+        "github.com/onsi/ginkgo/v2",
+        "github.com/onsi/gomega",
+        "github.com/stretchr/testify",
+        "oxlint",
+        "svelte-check",
+        "@playwright/test",
+        "/^@types//",
+      ],
+      semanticCommitType: "chore",
     },
   ],
 }
