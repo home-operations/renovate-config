@@ -23,25 +23,24 @@
     },
     {
       description: "Go Toolchain Group",
-      matchManagers: ["mise", "gomod"],
+      matchManagers: ["mise"],
       matchDepNames: ["go"],
-      matchFileNames: [".mise/config.toml", "go.mod"],
+      matchFileNames: [".mise/config.toml"],
       groupName: "Go toolchain",
       groupSlug: "go-toolchain",
     },
     {
-      // The go directive defaults to Renovate's go-mod-directive versioning,
-      // which reads `go 1.26.4` as a minimum satisfied by any later 1.26.x —
-      // so Renovate proposes directive updates only on new minors and the
-      // directive drifts behind the mise-pinned toolchain on every patch
-      // (the fleet sat at 1.26.0–1.26.4 while mise was on 1.26.5). Semver
-      // versioning makes patches count as updates; the group above then
-      // lands the directive bump in the same PR as the mise pin.
-      description: "Track Go patch releases in go.mod's go directive",
+      // The go directive is a compatibility floor, not the build toolchain —
+      // the mise pin above is what actually compiles and tests. Fleet policy:
+      // the directive stays pinned at the lowest release of the supported
+      // minor (currently 1.26.0) and only the mise pin moves, so a gap
+      // between the two is expected. Raise the directive by hand when the
+      // code needs a newer Go version.
+      description: "Never update go.mod's go directive; it is pinned manually",
       matchManagers: ["gomod"],
       matchDepNames: ["go"],
       matchDepTypes: ["golang"],
-      versioning: "semver",
+      enabled: false,
     },
     {
       description: "Rust Toolchain Group",
