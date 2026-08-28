@@ -1,0 +1,48 @@
+{
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  packageRules: [
+    // Automerge is reserved for tools whose breakage is caught by the checks
+    // on the bump PR itself, or whose blast radius ends at a dev machine.
+    // Tools that only run in release workflows (cosign, goreleaser, builder
+    // and login actions) stay manual: a bad bump there merges green and only
+    // surfaces at the next tag. Majors stay manual everywhere; note that
+    // zer0ver 0.x minors still automerge — for these tools the formatting or
+    // lint drift they can cause fails their own PR, which is the gate.
+    {
+      description: "Dev tooling (mise): formatters, linters, and hook runners with no runtime or release blast radius",
+      matchManagers: ["mise"],
+      matchDepNames: [
+        "actionlint",
+        "aqua:dadav/helm-schema",
+        "lefthook",
+        "oxfmt",
+        "shellcheck",
+        "yq",
+        "zizmor",
+      ],
+      matchUpdateTypes: ["minor", "patch"],
+      automerge: true,
+    },
+    {
+      description: "helm-unittest: test-only helm plugin, gated by the chart tests on its own bump PR",
+      matchDatasources: ["github-releases"],
+      matchDepNames: ["helm-unittest/helm-unittest"],
+      matchUpdateTypes: ["minor", "patch"],
+      automerge: true,
+    },
+    {
+      description: "oxlint (npm): lint-only, gated by the lint job on its own bump PR",
+      matchManagers: ["npm"],
+      matchDepNames: ["oxlint"],
+      matchUpdateTypes: ["minor", "patch"],
+      automerge: true,
+    },
+    {
+      description: "First-party actions and reusable workflows",
+      matchManagers: ["github-actions"],
+      matchDepNames: ["home-operations/**"],
+      matchUpdateTypes: ["minor", "patch", "digest"],
+      automerge: true,
+    },
+  ],
+}
