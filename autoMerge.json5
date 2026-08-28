@@ -38,9 +38,21 @@
       automerge: true,
     },
     {
-      description: "First-party actions and reusable workflows",
+      description: "First-party standalone actions (github-actions manager)",
       matchManagers: ["github-actions"],
       matchDepNames: ["home-operations/**"],
+      matchUpdateTypes: ["minor", "patch", "digest"],
+      automerge: true,
+    },
+    // The shared .github actions are pinned via the custom manager in
+    // sharedActions.json5, not the github-actions manager. Its depNameTemplate
+    // is the only source of this depName shape, so the pattern alone cannot
+    // catch other custom.regex deps (annotated vendir/release bumps of
+    // first-party projects are runtime changes and must stay manual).
+    {
+      description: "First-party shared actions (sharedActions.json5 custom manager)",
+      matchManagers: ["custom.regex"],
+      matchDepNames: ["home-operations/.github/actions/**"],
       matchUpdateTypes: ["minor", "patch", "digest"],
       automerge: true,
     },
