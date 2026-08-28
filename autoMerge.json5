@@ -1,0 +1,35 @@
+{
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  packageRules: [
+    {
+      description: "Auto-merge devtools",
+      matchManagers: ["mise"],
+      matchDepNames: [
+        "actionlint",
+        "aqua:dadav/helm-schema",
+        "gh",
+        "lefthook",
+        "oxfmt",
+        "shellcheck",
+        "yq",
+        "zizmor",
+      ],
+      matchUpdateTypes: ["minor", "patch"],
+      automerge: true,
+    },
+    {
+      description: "Auto-merge helm-unittest",
+      matchDatasources: ["github-releases"],
+      matchDepNames: ["helm-unittest/helm-unittest"],
+      matchUpdateTypes: ["minor", "patch"],
+      automerge: true,
+    },
+    {
+      description: "Auto-merge oxlint",
+      matchManagers: ["npm"],
+      matchDepNames: ["oxlint"],
+      matchUpdateTypes: ["minor", "patch"],
+      automerge: true,
+    },
+  ],
+}
