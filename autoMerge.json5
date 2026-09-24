@@ -7,42 +7,16 @@
       automerge: true,
     },
     {
-      description: "zer0ver: 0.x minors can break at any time, don't automerge them",
+      description: "zer0ver: 0.x minors can break at any time, don't automerge them. Devtools are the exception: a bad formatter or linter bump only breaks CI, which is what the gate is for",
       matchUpdateTypes: ["minor"],
       matchCurrentVersion: "/^v?0\\./",
-      automerge: false,
-    },
-    // The rules below sit after the zer0ver carve-out on purpose: a later rule
-    // wins, so these tools automerge their 0.x minors too.
-    {
-      description: "Auto-merge devtools",
-      matchManagers: ["mise"],
       matchDepNames: [
-        "actionlint",
-        "aqua:dadav/helm-schema",
-        "gh",
-        "lefthook",
-        "oxfmt",
-        "shellcheck",
-        "yq",
-        "zizmor",
+        "!aqua:dadav/helm-schema",
+        "!helm-unittest/helm-unittest",
+        "!oxfmt",
+        "!shellcheck",
       ],
-      matchUpdateTypes: ["minor", "patch"],
-      automerge: true,
-    },
-    {
-      description: "Auto-merge helm-unittest",
-      matchDatasources: ["github-releases"],
-      matchDepNames: ["helm-unittest/helm-unittest"],
-      matchUpdateTypes: ["minor", "patch"],
-      automerge: true,
-    },
-    {
-      description: "Auto-merge oxlint",
-      matchManagers: ["npm"],
-      matchDepNames: ["oxlint"],
-      matchUpdateTypes: ["minor", "patch"],
-      automerge: true,
+      automerge: false,
     },
   ],
 }
