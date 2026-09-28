@@ -30,6 +30,16 @@
       "description": "NPM Bump Range Strategy",
       "matchManagers": ["npm"],
       "rangeStrategy": "bump"
+    },
+    {
+      "description": "Hold package-registry updates (Go modules, npm, PyPI, crates) until they are 3 days old, the same window as the github-actions and mise groups",
+      "matchCategories": ["golang", "js", "python", "rust"],
+      "minimumReleaseAge": "3 days"
+    },
+    {
+      "description": "First-party Go modules (e.g. flate) skip the hold",
+      "matchPackageNames": ["github.com/home-operations/**"],
+      "minimumReleaseAge": "0 days"
     }
   ]
 }
