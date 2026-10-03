@@ -22,6 +22,17 @@
   "schedule": ["* 2-3 * * *"],
   "updateNotScheduled": false,
   "prHourlyLimit": 1,
+  "ignorePaths": [
+    "**/node_modules/**",
+    "**/bower_components/**",
+    "**/vendor/**",
+    "**/examples/**",
+    "**/__tests__/**",
+    "**/test/**",
+    "**/tests/**",
+    "**/__fixtures__/**",
+    "**/.mise/locks/**"
+  ],
   "packageRules": [
     {
       "description": "NPM Bump Range Strategy",
