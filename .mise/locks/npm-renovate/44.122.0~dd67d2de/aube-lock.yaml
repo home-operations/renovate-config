@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       renovate:
-        specifier: 44.121.3
-        version: 44.121.3(typanion@3.14.0)
+        specifier: 44.122.0
+        version: 44.122.0(typanion@3.14.0)
 
 packages:
 
@@ -1692,8 +1692,8 @@ packages:
     resolution: {integrity: sha512-dRB78srN/l6gqWulah9SrxeYnxeddIG30+GOqK/9OlLVyLg3HPnr6SqOWTWOXKRwC2eGYCkZ59NNuSgvSrpgOA==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
-  node-gyp@13.0.2:
-    resolution: {integrity: sha512-SXTvw3PxznpowYhJSOD9mVQBgDaCTWXffX+wQZsQ7PbcTV86TsXCUcSZhHnskFQvrvn/OdSzJPMsptT2pIj9ww==}
+  node-gyp@13.1.0:
+    resolution: {integrity: sha512-FpNzOLFACKG0oRBYbZ5WOeWD1EqRTIWX90MaRIWTO18lVYPx8fqIjrdS3pihjnCkSmgop6zVGkSqg1vXZLksuw==}
     engines: {node: ^22.22.2 || ^24.15.0 || >=26.0.0}
     hasBin: true
 
@@ -1916,8 +1916,8 @@ packages:
   remark@15.0.1:
     resolution: {integrity: sha512-Eht5w30ruCXgFmxVUSlNWQ9iiimq07URKeFS3hNc8cUWy1llX4KDWfyEDZRycMc+znsN9Ux5/tJ/BFdgdOwA3A==}
 
-  renovate@44.121.3:
-    resolution: {integrity: sha512-Lmup8NkYLoWv/SUB2AjIAxBpthjxVj6uRHsdRi+xoQNl3l4xtEjyweyEFP7a0jPZB5Z7pOMWm8ZW5ECxobkNYQ==}
+  renovate@44.122.0:
+    resolution: {integrity: sha512-2j9kuwrgucRGxNJVSHRKB08QTTjltV+DagnMq37D+7rQOwM4hZ/5bfSRE40Kmv1wUo7mZoPCO8mHRmvuZVACfw==}
     engines: {node: ^24.11.0, pnpm: ^11.0.0}
     hasBin: true
 
@@ -4417,7 +4417,7 @@ snapshots:
       fetch-blob: 3.2.0
       formdata-polyfill: 4.0.10
 
-  node-gyp@13.0.2:
+  node-gyp@13.1.0:
     dependencies:
       env-paths: 2.2.1
       exponential-backoff: 3.1.3
@@ -4605,7 +4605,7 @@ snapshots:
     dependencies:
       install-artifact-from-github: 1.8.1
       nan: 2.29.0
-      node-gyp: 13.0.2
+      node-gyp: 13.1.0
     optional: true
 
   read-yaml-file@2.1.0:
@@ -4657,7 +4657,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  renovate@44.121.3(typanion@3.14.0):
+  renovate@44.122.0(typanion@3.14.0):
     dependencies:
       '@aws-sdk/client-codecommit': 3.1117.0
       '@aws-sdk/client-ec2': 3.1117.0
