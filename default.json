@@ -15,10 +15,12 @@
     ":automergePr",
     ":configMigration",
     ":dependencyDashboard",
-    ":disableRateLimiting"
+    ":disableRateLimiting",
+    "schedule:daily"
   ],
   "dependencyDashboardTitle": "Renovate Dashboard 🤖",
   "minimumReleaseAgeBehaviour": "timestamp-optional",
+  "updateNotScheduled": false,
   "lockFileMaintenance": {
     "enabled": true,
     "schedule": ["before 3am on the first day of the month"],
