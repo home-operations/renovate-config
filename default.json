@@ -22,12 +22,6 @@
   "schedule": ["* 2-3 * * *"],
   "updateNotScheduled": false,
   "prHourlyLimit": 1,
-  "lockFileMaintenance": {
-    "enabled": true,
-    "schedule": ["before 3am on the first day of the month"],
-    "commitMessageExtra": "({{manager}})",
-    "additionalBranchPrefix": "{{manager}}-"
-  },
   "packageRules": [
     {
       "description": "NPM Bump Range Strategy",
