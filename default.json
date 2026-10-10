@@ -18,6 +18,8 @@
   ],
   "dependencyDashboardTitle": "Renovate Dashboard 🤖",
   "minimumReleaseAgeBehaviour": "timestamp-optional",
+  "schedule": ["* 0-3 * * *"],
+  "updateNotScheduled": false,
   "prHourlyLimit": 1,
   "ignorePaths": [
     "**/node_modules/**",
