@@ -8,7 +8,6 @@
     "./annotated.json5",
     "./autoMerge.json5",
     "./groups.json5",
-    "./helmPostUpgradeTasks.json5",
     "./labels.json5",
     "./semanticCommits.json5",
     "./sharedActions.json5",
