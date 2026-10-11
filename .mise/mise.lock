@@ -26,26 +26,26 @@ url_api = "https://api.github.com/repos/rhysd/actionlint/releases/assets/3849248
 provenance = "github-attestations"
 
 [[tools.lefthook]]
-version = "2.1.17"
+version = "2.2.0"
 backend = "aqua:evilmartians/lefthook"
-specifiers = ["2.1.17"]
+specifiers = ["2.2.0"]
 
 [tools.lefthook."platforms.linux-arm64"]
-checksum = "sha256:079cca03c2e719a804692fe819bd3786fcdc494af30491a9fd369a382ee6bc84"
-url = "https://github.com/evilmartians/lefthook/releases/download/v2.1.17/lefthook_2.1.17_Linux_aarch64.gz"
-url_api = "https://api.github.com/repos/evilmartians/lefthook/releases/assets/611880089"
+checksum = "sha256:97390b816df207d8ecbfe3714419778007ec02c680f131df6af2a3e7c337d9f5"
+url = "https://github.com/evilmartians/lefthook/releases/download/v2.2.0/lefthook_2.2.0_Linux_aarch64.gz"
+url_api = "https://api.github.com/repos/evilmartians/lefthook/releases/assets/619550824"
 provenance = "github-attestations"
 
 [tools.lefthook."platforms.linux-x64"]
-checksum = "sha256:e3c6e271b6a77a8fac527d7cc21c1036f7605afcb6653aabe4b166913322f900"
-url = "https://github.com/evilmartians/lefthook/releases/download/v2.1.17/lefthook_2.1.17_Linux_x86_64.gz"
-url_api = "https://api.github.com/repos/evilmartians/lefthook/releases/assets/611880017"
+checksum = "sha256:93cdcec92f5918d067f566c4c82ce4334b396646ca70fbc4413918abfd26731f"
+url = "https://github.com/evilmartians/lefthook/releases/download/v2.2.0/lefthook_2.2.0_Linux_x86_64.gz"
+url_api = "https://api.github.com/repos/evilmartians/lefthook/releases/assets/619550696"
 provenance = "github-attestations"
 
 [tools.lefthook."platforms.macos-arm64"]
-checksum = "sha256:aabf434ea7049af9854eb5205520bc16fc52d3d55459c2332a3711cdd6743d34"
-url = "https://github.com/evilmartians/lefthook/releases/download/v2.1.17/lefthook_2.1.17_MacOS_arm64.gz"
-url_api = "https://api.github.com/repos/evilmartians/lefthook/releases/assets/611879927"
+checksum = "sha256:41eceba8ceeb954e9dabfd10cd7a3caed16dd65448cacee7347c43d49ab07f23"
+url = "https://github.com/evilmartians/lefthook/releases/download/v2.2.0/lefthook_2.2.0_MacOS_arm64.gz"
+url_api = "https://api.github.com/repos/evilmartians/lefthook/releases/assets/619550718"
 provenance = "github-attestations"
 
 [[tools.node]]
@@ -66,10 +66,10 @@ checksum = "sha256:d916511b55965e91be7a88e17f88d895b6793ceaba3e6c9b194aefe51c2c6
 url = "https://nodejs.org/dist/v26.11.1/node-v26.11.1-darwin-arm64.tar.gz"
 
 [[tools."npm:renovate"]]
-version = "44.142.1"
-aube = { path = "locks/npm-renovate/44.142.1~dd67d2de", digest = "sha256:9e276d3952cef01342c4c79844a1b45ebb755fd1d991955702f049298978e7f2" }
+version = "44.145.1"
+aube = { path = "locks/npm-renovate/44.145.1~dd67d2de", digest = "sha256:590c983049c5ca2f9fb155a94f18f3c03ea08c4bfbe6d9297c767f09b5ea2d3a" }
 backend = "npm:renovate"
-specifiers = ["44.142.1"]
+specifiers = ["44.145.1"]
 
 [tools."npm:renovate".options]
 trust_policy_excludes = '["@yarnpkg/libzip"]'
