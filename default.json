@@ -35,6 +35,7 @@
   "registryAliases": {
     "mirror.gcr.io": "docker.io"
   },
+  "gitIgnoredAuthors": ["203671426+sticky-gecko[bot]@users.noreply.github.com"],
   "packageRules": [
     {
       "description": "NPM Bump Range Strategy",
