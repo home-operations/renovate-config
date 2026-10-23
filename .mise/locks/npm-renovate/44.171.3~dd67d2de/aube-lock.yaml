@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       renovate:
-        specifier: 44.171.1
-        version: 44.171.1(typanion@3.14.0)
+        specifier: 44.171.3
+        version: 44.171.3(typanion@3.14.0)
 
 packages:
 
@@ -1051,8 +1051,8 @@ packages:
   eventemitter3@5.0.4:
     resolution: {integrity: sha512-mlsTRyGaPBjPedk6Bvw+aqbsXDtoAyAzm5MO7JgU+yVRyMQ5O8bD4Kcci7BS85f93veegeCPkL8R4GLClnjLFw==}
 
-  execa@10.1.0:
-    resolution: {integrity: sha512-5HT/600HqXEtmkb9mK/PkTWw+bQSCzPnWiZ4/87wD3Hi0wFzCapOuNT9p4M08PDd+KLHdHvFhKjOWmNx/npRNQ==}
+  execa@10.1.1:
+    resolution: {integrity: sha512-yJAC9ulsE6fU0K6wzJBIH+wI+KAtMeu6Ck8rs23OVzvEhqXjGADdI6K+YNIDAjcQQ6AwXTD96cKExJo6xFJXyg==}
     engines: {node: '>=22'}
 
   exponential-backoff@3.1.3:
@@ -1936,8 +1936,8 @@ packages:
   remark@15.0.1:
     resolution: {integrity: sha512-Eht5w30ruCXgFmxVUSlNWQ9iiimq07URKeFS3hNc8cUWy1llX4KDWfyEDZRycMc+znsN9Ux5/tJ/BFdgdOwA3A==}
 
-  renovate@44.171.1:
-    resolution: {integrity: sha512-Gr3C8mBN301wiq4lwIZo89RpLnp8bAGLPr3rrDyP3iSwYz6hYC8mijXc1s3hsUIu+VtMHWA2sfQ6Rhc8BCyG4w==}
+  renovate@44.171.3:
+    resolution: {integrity: sha512-CzsCo+NsuvPeqaBbSY0Kb20HKbc6Y488E4cEXN91KqhgNpq3hnV9fCUNujKjcQtB2nq+ZLxwLM8EFMolaKUcMg==}
     engines: {node: ^24.11.0, pnpm: ^11.0.0}
     hasBin: true
 
@@ -3559,7 +3559,7 @@ snapshots:
 
   eventemitter3@5.0.4: {}
 
-  execa@10.1.0:
+  execa@10.1.1:
     dependencies:
       '@sindresorhus/merge-streams': 4.0.0
       figures: 6.1.0
@@ -4691,7 +4691,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  renovate@44.171.1(typanion@3.14.0):
+  renovate@44.171.3(typanion@3.14.0):
     dependencies:
       '@aws-sdk/client-codecommit': 3.1139.0
       '@aws-sdk/client-ec2': 3.1139.0
@@ -4757,7 +4757,7 @@ snapshots:
       emoji-regex: 10.6.0
       emojibase: 17.0.0
       emojibase-regex: 17.0.0
-      execa: 10.1.0
+      execa: 10.1.1
       find-packages: 10.0.4
       find-up: 8.0.0
       fs-extra: 11.4.1
